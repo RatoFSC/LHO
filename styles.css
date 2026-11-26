@@ -6197,3 +6197,481 @@
 .lh-history-item-label {
 	font-weight: 600;
 }
+
+/* --------------------------------------------------------------------------
+   ver 1.1.4: 入力ガイドヒント ＆ 大量ノード確認モーダル
+   -------------------------------------------------------------------------- */
+.lh-field-hint {
+	font-size: 11px;
+	color: var(--text-muted);
+	line-height: 1.4;
+}
+
+.lh-large-roadmap-modal {
+	max-width: 640px;
+	width: 92vw;
+}
+
+.lh-large-roadmap-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.lh-large-roadmap-header-icon {
+	display: inline-flex;
+	align-items: center;
+	color: var(--color-orange, var(--interactive-accent));
+	flex-shrink: 0;
+}
+
+.lh-large-roadmap-title {
+	margin: 0;
+	font-size: var(--font-ui-large, 16px);
+	font-weight: 700;
+	color: var(--text-normal);
+}
+
+.lh-large-roadmap-desc {
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+	line-height: 1.5;
+	margin: 0 0 10px 0;
+}
+
+.lh-large-roadmap-stats {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 6px;
+	margin-bottom: 8px;
+}
+
+@media (max-width: 520px) {
+	.lh-large-roadmap-stats {
+		grid-template-columns: 1fr;
+	}
+}
+
+.lh-large-roadmap-stat-cell {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 7px 9px;
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+}
+
+.lh-large-roadmap-stat-label {
+	font-size: 10.5px;
+	color: var(--text-muted);
+}
+
+.lh-large-roadmap-stat-value {
+	font-size: var(--font-ui-small);
+	font-weight: 700;
+	color: var(--text-normal);
+}
+
+.lh-large-roadmap-folder {
+	font-size: 11.5px;
+	color: var(--text-muted);
+	padding: 4px 8px;
+	margin-bottom: 10px;
+	background-color: var(--background-primary-alt);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	word-break: break-all;
+}
+
+.lh-large-roadmap-scroll {
+	max-height: min(48vh, 360px);
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 8px;
+	margin-bottom: 14px;
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-m);
+}
+
+.lh-large-roadmap-level-group {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.lh-large-roadmap-level-heading {
+	font-size: 11.5px;
+	font-weight: 700;
+	color: var(--interactive-accent);
+	padding: 2px 4px;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.lh-large-roadmap-item-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.lh-large-roadmap-item {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 5px 8px;
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+}
+
+.lh-large-roadmap-item-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.lh-large-roadmap-item-title {
+	font-size: var(--font-ui-small);
+	font-weight: 600;
+	color: var(--text-normal);
+	min-width: 0;
+	word-break: break-word;
+}
+
+.lh-large-roadmap-item-badges {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	flex-shrink: 0;
+}
+
+.lh-large-roadmap-action-badge {
+	font-size: 10px;
+	font-weight: 600;
+	padding: 1px 6px;
+	border-radius: 999px;
+	border: 1px solid var(--background-modifier-border);
+	background-color: var(--background-primary);
+	color: var(--text-muted);
+}
+
+.lh-large-roadmap-action-badge--created {
+	color: var(--interactive-accent);
+	border-color: var(--interactive-accent);
+}
+
+.lh-large-roadmap-action-badge--reused {
+	color: var(--color-green, #16a34a);
+	border-color: var(--color-green, #16a34a);
+}
+
+.lh-large-roadmap-action-badge--preserved {
+	color: var(--color-orange, #d97706);
+	border-color: var(--color-orange, #d97706);
+}
+
+.lh-large-roadmap-item-prereq {
+	font-size: 11px;
+	color: var(--text-muted);
+	line-height: 1.4;
+}
+
+.lh-large-roadmap-actions {
+	margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   ver 1.1.5: 既存ロードマップ再生成ボタン＆2ステップ比較プレビューモーダル
+   -------------------------------------------------------------------------- */
+.lh-subject-regen-btn {
+	font-weight: 600;
+	color: var(--interactive-accent);
+	border-color: var(--background-modifier-border);
+}
+
+.lh-subject-regen-btn:hover:not(:disabled) {
+	background-color: var(--background-primary-alt);
+	border-color: var(--interactive-accent);
+}
+
+.lh-regen-modal {
+	max-width: 680px;
+	width: 92vw;
+}
+
+.lh-regen-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.lh-regen-header-icon {
+	display: inline-flex;
+	align-items: center;
+	color: var(--interactive-accent);
+	flex-shrink: 0;
+}
+
+.lh-regen-title {
+	margin: 0;
+	font-size: var(--font-ui-large, 16px);
+	font-weight: 700;
+	color: var(--text-normal);
+	word-break: break-word;
+}
+
+.lh-regen-desc {
+	margin: 0 0 10px 0;
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+	line-height: 1.5;
+}
+
+.lh-regen-scan-card {
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+	padding: 9px 11px;
+	margin-bottom: 10px;
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-m);
+}
+
+.lh-regen-scan-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.lh-regen-folder-pill {
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--text-normal);
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	padding: 2px 7px;
+	word-break: break-all;
+}
+
+.lh-regen-diag-pill {
+	font-size: 10.5px;
+	font-weight: 600;
+	color: var(--interactive-accent);
+	background-color: var(--background-primary-alt);
+	border: 1px solid var(--interactive-accent);
+	border-radius: 999px;
+	padding: 1px 8px;
+}
+
+.lh-regen-scan-stats {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.lh-regen-stat-chip {
+	font-size: 11px;
+	color: var(--text-muted);
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	padding: 2px 7px;
+}
+
+.lh-regen-stat-chip--progress {
+	color: var(--text-normal);
+	font-weight: 600;
+}
+
+.lh-regen-stat-chip--due {
+	color: var(--text-error);
+	border-color: var(--text-error);
+	font-weight: 600;
+}
+
+.lh-regen-field {
+	margin-bottom: 10px;
+}
+
+.lh-regen-backup-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	padding: 8px 10px;
+	margin-bottom: 12px;
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	cursor: pointer;
+}
+
+.lh-regen-backup-row input[type="checkbox"] {
+	margin-top: 2px;
+	cursor: pointer;
+	accent-color: var(--interactive-accent);
+}
+
+.lh-regen-backup-label {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-normal);
+	line-height: 1.45;
+}
+
+.lh-regen-compare-bar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+	padding: 8px 10px;
+	margin-bottom: 10px;
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-m);
+}
+
+.lh-regen-compare-badge {
+	font-size: var(--font-ui-small);
+	font-weight: 700;
+	padding: 3px 9px;
+	border-radius: 999px;
+	border: 1px solid var(--background-modifier-border);
+}
+
+.lh-regen-compare-badge--old {
+	color: var(--text-muted);
+	background-color: var(--background-primary);
+}
+
+.lh-regen-compare-badge--new {
+	color: var(--text-on-accent);
+	background-color: var(--interactive-accent);
+	border-color: var(--interactive-accent);
+}
+
+.lh-regen-compare-badge--reuse {
+	color: var(--color-green, #16a34a);
+	background-color: var(--background-primary);
+	border-color: var(--color-green, #16a34a);
+}
+
+.lh-regen-compare-arrow {
+	font-weight: 700;
+	color: var(--text-muted);
+}
+
+.lh-regen-breakdown-grid {
+	margin-bottom: 10px;
+}
+
+.lh-regen-stat-sub {
+	font-size: 10px;
+	color: var(--text-muted);
+	line-height: 1.35;
+}
+
+.lh-regen-stat-cell--inherited {
+	border-color: var(--color-green, #16a34a);
+}
+
+.lh-regen-stat-cell--created {
+	border-color: var(--interactive-accent);
+}
+
+.lh-regen-stat-cell--unmatched {
+	border-color: var(--color-orange, #d97706);
+}
+
+.lh-regen-backbone-details {
+	margin-bottom: 10px;
+	padding: 6px 10px;
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+}
+
+.lh-regen-backbone-summary {
+	font-size: var(--font-ui-smaller);
+	font-weight: 600;
+	color: var(--text-normal);
+	cursor: pointer;
+}
+
+.lh-regen-backbone-body {
+	margin-top: 6px;
+	padding-top: 6px;
+	border-top: 1px dashed var(--background-modifier-border);
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+.lh-regen-preview-scroll {
+	max-height: min(44vh, 340px);
+	margin-bottom: 12px;
+}
+
+.lh-regen-node-badge {
+	font-size: 10px;
+	font-weight: 700;
+	padding: 1px 7px;
+	border-radius: 999px;
+	border: 1px solid var(--background-modifier-border);
+	background-color: var(--background-primary);
+}
+
+.lh-regen-node-badge--mastered {
+	color: var(--color-green, #16a34a);
+	border-color: var(--color-green, #16a34a);
+}
+
+.lh-regen-node-badge--learning {
+	color: var(--color-orange, #d97706);
+	border-color: var(--color-orange, #d97706);
+}
+
+.lh-regen-node-badge--unstarted {
+	color: var(--text-muted);
+	border-color: var(--background-modifier-border);
+}
+
+.lh-regen-due-badge {
+	font-size: 10px;
+	font-weight: 700;
+	padding: 1px 6px;
+	border-radius: 999px;
+	color: var(--text-error);
+	border: 1px solid var(--text-error);
+	background-color: var(--background-primary);
+}
+
+.lh-regen-unmatched-heading {
+	color: var(--color-orange, #d97706);
+}
+
+.lh-regen-unmatched-item {
+	background-color: var(--background-primary-alt);
+}
+
+.lh-regen-actions {
+	margin-top: 8px;
+}
+
+.lh-regen-preview-actions {
+	flex-wrap: wrap;
+}
