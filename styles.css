@@ -3116,6 +3116,7 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
+	flex: 1 1 auto;
 	min-width: 0;
 }
 
@@ -3158,7 +3159,7 @@
 	flex-direction: column;
 	gap: 8px;
 	padding: 9px 10px;
-	max-height: 260px;
+	max-height: min(54vh, 330px);
 	overflow-y: auto;
 	background-color: var(--background-primary-alt);
 }
@@ -6674,4 +6675,123 @@
 
 .lh-regen-preview-actions {
 	flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   ver 1.1.6: 暗黙的キャッシュ節約バッジ・詳細パネルキャッシュ可視化
+   -------------------------------------------------------------------------- */
+.lh-cost-cache-pill {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	padding: 1px 6px;
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 1.3;
+	border-radius: 999px;
+	color: var(--color-green, var(--interactive-accent));
+	background-color: var(--background-primary);
+	border: 1px solid var(--color-green, var(--interactive-accent));
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.lh-cost-last-cache-badge {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	padding: 0 5px;
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 1.35;
+	border-radius: 999px;
+	color: var(--color-green, var(--interactive-accent));
+	background-color: var(--background-primary);
+	border: 1px solid var(--color-green, var(--interactive-accent));
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.lh-cost-cache-box {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: 6px 8px;
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+}
+
+.lh-cost-cache-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.lh-cost-cache-title {
+	font-size: 11px;
+	font-weight: 700;
+	color: var(--text-normal);
+}
+
+.lh-cost-cache-discount-pill {
+	font-size: 10px;
+	font-weight: 600;
+	padding: 1px 6px;
+	border-radius: 999px;
+	color: var(--text-muted);
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.lh-cost-cache-discount-pill--saved {
+	color: var(--color-green, var(--interactive-accent));
+	border-color: var(--color-green, var(--interactive-accent));
+	background-color: var(--background-primary-alt);
+}
+
+.lh-cost-cache-rows {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.lh-cost-cache-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	font-size: 10.5px;
+	line-height: 1.35;
+	flex-wrap: wrap;
+}
+
+.lh-cost-cache-row-label {
+	font-weight: 600;
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+
+.lh-cost-cache-row-stats {
+	color: var(--text-muted);
+	font-variant-numeric: tabular-nums;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.lh-cost-cache-row-stats--active {
+	color: var(--color-green, var(--interactive-accent));
+	font-weight: 600;
+}
+
+.lh-dashboard-cost-cache-note {
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--color-green, var(--interactive-accent));
+	font-variant-numeric: tabular-nums;
+	line-height: 1.35;
 }

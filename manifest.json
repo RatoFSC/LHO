@@ -1,7 +1,7 @@
 {
 	"id": "obsidian-learn-harness",
 	"name": "LearnHarness (LHO)",
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"minAppVersion": "1.5.0",
 	"description": "AI学習支援プラグイン（LHO）：理解度診断・知識マップ自動生成・ソクラテス式学習・忘却曲線復習をGemini APIでサポートします。",
 	"author": "LearnHarness",
