@@ -1335,6 +1335,7 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 8px;
+	flex-wrap: wrap;
 }
 
 .lh-composer-hint {
@@ -2089,6 +2090,8 @@
 	align-items: center;
 	gap: 6px;
 	min-width: 0;
+	flex: 1 1 auto;
+	flex-wrap: wrap;
 }
 
 .lh-hint-btn {
@@ -5009,6 +5012,7 @@
 	align-items: center;
 	justify-content: flex-end;
 	gap: 6px;
+	flex-wrap: wrap;
 	margin-top: 6px;
 	padding-top: 5px;
 	border-top: 1px dashed var(--background-modifier-border);
@@ -6794,4 +6798,331 @@
 	color: var(--color-green, var(--interactive-accent));
 	font-variant-numeric: tabular-nums;
 	line-height: 1.35;
+}
+
+/* --------------------------------------------------------------------------
+   ver 1.2.2: UI磨き込みパック（案1〜案4）
+   -------------------------------------------------------------------------- */
+
+/* 案4: ヘッダー モデル＆指導スタイル ワンクリック切替ピルボタン */
+button.lh-model-badge--interactive {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	max-width: 175px;
+	min-width: 0;
+	height: auto;
+	margin: 0;
+	padding: 2px 7px;
+	font-family: inherit;
+	font-size: var(--font-ui-smaller);
+	font-weight: 500;
+	line-height: 1.35;
+	color: var(--text-muted);
+	background-color: var(--background-primary-alt);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	box-shadow: none;
+	cursor: pointer;
+	transition: border-color 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+}
+
+button.lh-model-badge--interactive:hover {
+	color: var(--text-normal);
+	background-color: var(--background-modifier-hover);
+	border-color: var(--interactive-accent);
+}
+
+button.lh-model-badge--interactive:focus-visible {
+	outline: none;
+	border-color: var(--interactive-accent);
+	box-shadow: 0 0 0 2px var(--background-modifier-border-focus, var(--interactive-accent));
+}
+
+.lh-model-badge-label {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.lh-model-badge-chevron {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	color: var(--text-faint);
+}
+
+.lh-model-badge-chevron svg {
+	width: 11px;
+	height: 11px;
+}
+
+/* 案1: _Roadmap.md 連動「次に学ぶべきノード（Next Up）」ナビゲーション */
+.lh-next-up-card {
+	gap: 9px;
+}
+
+.lh-next-up-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.lh-next-up-title-group {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	min-width: 0;
+}
+
+.lh-next-up-icon {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	color: var(--interactive-accent);
+}
+
+.lh-next-up-icon svg {
+	width: 15px;
+	height: 15px;
+}
+
+.lh-next-up-title {
+	font-size: var(--font-ui-small);
+	font-weight: 700;
+	color: var(--text-normal);
+	line-height: 1.35;
+}
+
+.lh-next-up-progress-pill {
+	display: inline-flex;
+	align-items: center;
+	padding: 1px 8px;
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--text-muted);
+	background-color: var(--background-primary-alt);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 999px;
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.lh-next-up-desc {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	line-height: 1.45;
+}
+
+.lh-next-up-list {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.lh-next-up-chip {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	width: 100%;
+	height: auto;
+	padding: 8px 10px;
+	text-align: left;
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	box-shadow: none;
+	cursor: pointer;
+	transition: border-color 0.12s ease, background-color 0.12s ease;
+}
+
+.lh-next-up-chip:hover {
+	background-color: var(--background-modifier-hover);
+	border-color: var(--interactive-accent);
+}
+
+.lh-next-up-chip--learning {
+	border-left: 3px solid var(--interactive-accent);
+}
+
+.lh-next-up-chip-main {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	min-width: 0;
+	flex: 1 1 auto;
+}
+
+.lh-next-up-chip-top {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	flex-wrap: wrap;
+	min-width: 0;
+}
+
+.lh-next-up-level-pill {
+	font-size: 10px;
+	font-weight: 600;
+	padding: 0 5px;
+	border-radius: var(--radius-s);
+	color: var(--text-muted);
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.lh-next-up-chip-name {
+	font-size: var(--font-ui-small);
+	font-weight: 600;
+	color: var(--text-normal);
+	word-break: break-word;
+	line-height: 1.35;
+}
+
+.lh-next-up-chip-sub {
+	font-size: 11px;
+	color: var(--text-muted);
+	line-height: 1.35;
+	word-break: break-word;
+}
+
+.lh-next-up-chip-arrow {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	color: var(--text-faint);
+}
+
+.lh-next-up-chip:hover .lh-next-up-chip-arrow {
+	color: var(--interactive-accent);
+}
+
+.lh-next-up-more-note {
+	font-size: 11px;
+	color: var(--text-faint);
+	text-align: right;
+}
+
+.lh-next-up-empty {
+	padding: 10px;
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	line-height: 1.5;
+	background-color: var(--background-primary-alt);
+	border: 1px dashed var(--background-modifier-border);
+	border-radius: var(--radius-s);
+}
+
+.lh-next-up-complete {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 10px 11px;
+	background-color: var(--background-primary-alt);
+	border: 1px solid var(--color-green, var(--interactive-accent));
+	border-radius: var(--radius-s);
+}
+
+.lh-next-up-complete-title {
+	font-size: var(--font-ui-small);
+	font-weight: 700;
+	color: var(--color-green, var(--interactive-accent));
+	line-height: 1.4;
+}
+
+.lh-next-up-complete-desc {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	line-height: 1.45;
+}
+
+.lh-next-up-actions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	flex-wrap: wrap;
+	padding-top: 4px;
+	border-top: 1px dashed var(--background-modifier-border);
+}
+
+.lh-next-up-cram-btn,
+.lh-next-up-regen-btn {
+	flex: 1 1 130px;
+	justify-content: center;
+}
+
+/* 案2: 確認モーダル・送信キーヒント・Enter進行キーヒント */
+.lh-confirm-modal-desc {
+	white-space: pre-line;
+}
+
+.lh-input-shortcut-hint {
+	font-size: 11px;
+	color: var(--text-faint);
+	line-height: 1.35;
+	margin-top: 2px;
+}
+
+.lh-next-key-hint {
+	display: inline-block;
+	padding: 0 5px;
+	margin-left: 2px;
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: inherit;
+	background-color: rgba(255, 255, 255, 0.18);
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	border-radius: 3px;
+}
+
+/* 案3: 選択範囲追記モード・コピーボタン・サイドバー内テキスト選択確保 */
+.lh-message-body,
+.lh-summary-overview,
+.lh-thought-analysis-note,
+.lh-web-sources-summary-box,
+.lh-cram-feedback-card {
+	user-select: text;
+	-webkit-user-select: text;
+}
+
+.lh-note-append-btn--selection {
+	color: var(--interactive-accent);
+	border-color: var(--interactive-accent);
+	background-color: var(--background-primary-alt);
+}
+
+.lh-note-copy-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 2px 8px;
+	height: auto;
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--text-muted);
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	cursor: pointer;
+	box-shadow: none;
+	transition: border-color 0.12s ease, color 0.12s ease, background-color 0.12s ease;
+}
+
+.lh-note-copy-btn:hover:not(:disabled) {
+	color: var(--text-normal);
+	border-color: var(--interactive-accent);
+	background-color: var(--background-modifier-hover);
+}
+
+.lh-note-copy-btn--done {
+	color: var(--color-green, var(--interactive-accent));
+	border-color: var(--color-green, var(--interactive-accent));
+	background-color: var(--background-primary-alt);
 }
