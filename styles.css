@@ -7052,8 +7052,9 @@ button.lh-model-badge--interactive:focus-visible {
 }
 
 .lh-next-up-cram-btn,
+.lh-next-up-mock-exam-btn,
 .lh-next-up-regen-btn {
-	flex: 1 1 130px;
+	flex: 1 1 120px;
 	justify-content: center;
 }
 
@@ -7126,3 +7127,601 @@ button.lh-model-badge--interactive:focus-visible {
 	border-color: var(--color-green, var(--interactive-accent));
 	background-color: var(--background-primary-alt);
 }
+
+/* --------------------------------------------------------------------------
+   ver 1.3.0 (Phase 1 / 案A): 講義資料から直接作成 ＆ 既存科目への週次統合
+   -------------------------------------------------------------------------- */
+.lh-diagnosis-mode-bar-wrap {
+	padding: 8px 12px 2px 12px;
+	flex-shrink: 0;
+	background-color: var(--background-primary);
+}
+
+.lh-diagnosis-mode-switch .lh-review-mode-btn {
+	font-size: 11.5px;
+	padding: 5px 6px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.lh-diagnosis-mode-btn--lecture.lh-review-mode-btn--active {
+	color: var(--interactive-accent);
+	border-color: var(--interactive-accent);
+}
+
+.lh-lecture-probing-resume-bar {
+	border-color: var(--interactive-accent);
+}
+
+.lh-lecture-import-card {
+	gap: 10px;
+}
+
+.lh-lecture-dest-field {
+	gap: 7px;
+}
+
+.lh-lecture-dest-toggle {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+	gap: 5px;
+}
+
+.lh-lecture-dest-subbox {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 9px 10px;
+	background-color: var(--background-primary-alt);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+}
+
+.lh-lecture-folder-input-row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.lh-lecture-folder-input-row .lh-text-input {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.lh-lecture-folder-pick-btn {
+	flex-shrink: 0;
+}
+
+.lh-lecture-path-preview {
+	padding: 4px 7px;
+	background-color: var(--background-primary);
+	border: 1px dashed var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	word-break: break-all;
+}
+
+.lh-lecture-merge-target-info {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	padding: 6px 8px;
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+}
+
+.lh-lecture-merge-target-stats {
+	font-size: 11.5px;
+	font-weight: 600;
+	color: var(--text-normal);
+	line-height: 1.4;
+}
+
+/* プレビュー＆既知ノード初期チェックモーダル */
+.lh-lecture-large-warn-banner {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	padding: 8px 10px;
+	margin-bottom: 10px;
+	font-size: var(--font-ui-smaller);
+	color: var(--color-orange, #d97706);
+	background-color: var(--background-secondary);
+	border: 1px solid var(--color-orange, #d97706);
+	border-radius: var(--radius-s);
+	line-height: 1.45;
+}
+
+.lh-lecture-large-warn-icon {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	margin-top: 1px;
+}
+
+.lh-lecture-preview-backup-row {
+	margin-bottom: 10px;
+}
+
+.lh-lecture-known-bar {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 8px 10px;
+	margin-bottom: 10px;
+	background-color: var(--background-secondary);
+	border: 1px solid var(--interactive-accent);
+	border-radius: var(--radius-m);
+}
+
+.lh-lecture-known-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.lh-lecture-known-title-wrap {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: var(--interactive-accent);
+}
+
+.lh-lecture-known-title {
+	font-size: var(--font-ui-small);
+	font-weight: 700;
+	color: var(--text-normal);
+}
+
+.lh-lecture-known-controls {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.lh-lecture-known-count {
+	font-size: 11px;
+	font-weight: 600;
+	padding: 1px 7px;
+	border-radius: 999px;
+	color: var(--text-muted);
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	font-variant-numeric: tabular-nums;
+}
+
+.lh-lecture-known-count--active {
+	color: var(--color-green, #16a34a);
+	border-color: var(--color-green, #16a34a);
+}
+
+.lh-lecture-known-hint {
+	font-size: 11.5px;
+	color: var(--text-muted);
+	line-height: 1.4;
+}
+
+.lh-lecture-known-mode-row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.lh-lecture-known-mode-label {
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--text-muted);
+}
+
+.lh-lecture-known-mode-btn--active-mastered {
+	color: var(--color-green, #16a34a);
+	border-color: var(--color-green, #16a34a);
+	background-color: var(--background-primary-alt);
+	font-weight: 700;
+}
+
+.lh-lecture-known-mode-btn--active-learning {
+	color: var(--color-orange, #d97706);
+	border-color: var(--color-orange, #d97706);
+	background-color: var(--background-primary-alt);
+	font-weight: 700;
+}
+
+.lh-lecture-check-item--mastered {
+	border-color: var(--color-green, #16a34a);
+	background-color: var(--background-primary-alt);
+}
+
+.lh-lecture-check-item--learning {
+	border-color: var(--color-orange, #d97706);
+	background-color: var(--background-primary-alt);
+}
+
+.lh-lecture-check-label {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	min-width: 0;
+	cursor: pointer;
+}
+
+.lh-lecture-checkbox {
+	margin: 0;
+	cursor: pointer;
+	accent-color: var(--interactive-accent);
+	flex-shrink: 0;
+}
+
+button.lh-lecture-status-toggle-pill {
+	height: auto;
+	cursor: pointer;
+	box-shadow: none;
+}
+
+button.lh-lecture-status-toggle-pill:hover:not(:disabled) {
+	filter: brightness(0.95);
+}
+
+.lh-lecture-item-summary {
+	font-size: 11.5px;
+	color: var(--text-muted);
+	line-height: 1.4;
+	padding-left: 21px;
+}
+
+/* --------------------------------------------------------------------------
+   ver 1.3.0 (Phase 2 / 案C): AI模擬試験ノート生成モーダル ＆ サイドバー専用パネル
+   -------------------------------------------------------------------------- */
+.lh-mock-exam-modal {
+	width: min(640px, 94vw);
+	max-width: 640px;
+}
+
+.lh-mock-exam-field {
+	margin-top: 8px;
+}
+
+.lh-mock-exam-subject-stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-top: 4px;
+}
+
+.lh-mock-exam-count-group {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+	gap: 5px;
+}
+
+.lh-mock-exam-seg-group {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+	gap: 5px;
+}
+
+.lh-mock-exam-source-field {
+	margin-top: 10px;
+	padding: 9px 10px;
+	background-color: var(--background-primary-alt);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+}
+
+.lh-mock-exam-modal-footer {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-top: 12px;
+	padding-top: 8px;
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+.lh-mock-exam-model-note {
+	font-size: 11px;
+	color: var(--text-muted);
+	line-height: 1.35;
+}
+
+/* ダッシュボード科目カードの模擬試験ボタン */
+.lh-subject-mock-exam-btn {
+	border-color: var(--interactive-accent);
+	color: var(--text-normal);
+}
+
+.lh-subject-mock-exam-btn:hover:not(:disabled) {
+	background-color: var(--background-modifier-hover);
+	border-color: var(--interactive-accent);
+}
+
+/* サイドバー「ノート学習」タブ内の模擬試験専用コントロールパネル */
+.lh-mock-exam-panel {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.lh-mock-exam-card {
+	gap: 9px;
+}
+
+.lh-mock-exam-card--graded {
+	border-color: var(--color-green, var(--interactive-accent));
+}
+
+.lh-mock-exam-header-row {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.lh-mock-exam-title-group {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	min-width: 0;
+	flex: 1 1 auto;
+}
+
+.lh-mock-exam-title-group .lh-card-title {
+	word-break: break-word;
+	line-height: 1.35;
+}
+
+.lh-mock-exam-meta-pills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+
+.lh-mock-exam-answer-progress {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 8px 10px;
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+}
+
+.lh-mock-exam-answer-progress-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.lh-mock-exam-answer-progress-label {
+	font-size: var(--font-ui-smaller);
+	font-weight: 600;
+	color: var(--text-normal);
+	font-variant-numeric: tabular-nums;
+}
+
+.lh-mock-exam-blank-hint {
+	font-size: 11px;
+	color: var(--color-orange, #d97706);
+	line-height: 1.35;
+}
+
+.lh-mock-exam-grade-btn {
+	margin-top: 2px;
+}
+
+/* 採点済み総合スコアカード */
+.lh-mock-exam-score-card {
+	gap: 9px;
+	background-color: var(--background-primary-alt);
+}
+
+.lh-mock-exam-score-card--high {
+	border-color: var(--color-green, #16a34a);
+}
+
+.lh-mock-exam-score-card--mid {
+	border-color: var(--color-orange, #d97706);
+}
+
+.lh-mock-exam-score-card--low {
+	border-color: var(--text-error);
+}
+
+.lh-mock-exam-score-hero {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.lh-mock-exam-score-left {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.lh-mock-exam-score-caption {
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--text-muted);
+}
+
+.lh-mock-exam-score-value-row {
+	display: flex;
+	align-items: baseline;
+	gap: 4px;
+	font-variant-numeric: tabular-nums;
+}
+
+.lh-mock-exam-score-main {
+	font-size: 26px;
+	font-weight: 800;
+	line-height: 1.1;
+	color: var(--text-normal);
+}
+
+.lh-mock-exam-score-denom {
+	font-size: var(--font-ui-small);
+	font-weight: 600;
+	color: var(--text-muted);
+}
+
+.lh-mock-exam-score-pct-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px 10px;
+	font-size: var(--font-ui-medium);
+	font-weight: 800;
+	border-radius: 999px;
+	font-variant-numeric: tabular-nums;
+	background-color: var(--background-primary);
+	border: 1.5px solid var(--background-modifier-border);
+	color: var(--text-normal);
+}
+
+.lh-mock-exam-score-pct-badge.lh-mock-exam-score-card--high {
+	color: var(--color-green, #16a34a);
+	border-color: var(--color-green, #16a34a);
+}
+
+.lh-mock-exam-score-pct-badge.lh-mock-exam-score-card--mid {
+	color: var(--color-orange, #d97706);
+	border-color: var(--color-orange, #d97706);
+}
+
+.lh-mock-exam-score-pct-badge.lh-mock-exam-score-card--low {
+	color: var(--text-error);
+	border-color: var(--text-error);
+}
+
+.lh-mock-exam-q-scores-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+
+.lh-mock-exam-q-pill {
+	font-size: 11px;
+	font-weight: 600;
+	padding: 2px 7px;
+	border-radius: var(--radius-s);
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	color: var(--text-normal);
+	font-variant-numeric: tabular-nums;
+}
+
+.lh-mock-exam-q-pill--excellent {
+	border-color: var(--color-green, #16a34a);
+	color: var(--color-green, #16a34a);
+}
+
+.lh-mock-exam-q-pill--partial {
+	border-color: var(--color-orange, #d97706);
+	color: var(--color-orange, #d97706);
+}
+
+.lh-mock-exam-q-pill--weak {
+	border-color: var(--text-error);
+	color: var(--text-error);
+}
+
+.lh-mock-exam-overall-comment {
+	padding: 8px 10px;
+	font-size: var(--font-ui-smaller);
+	color: var(--text-normal);
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	line-height: 1.5;
+	user-select: text;
+}
+
+/* 弱点概念ノード一覧 */
+.lh-mock-exam-weak-card {
+	gap: 8px;
+}
+
+.lh-mock-exam-weak-list {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.lh-mock-exam-weak-item {
+	display: flex;
+	align-items: stretch;
+	gap: 6px;
+}
+
+.lh-mock-exam-weak-open-btn {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 3px;
+	flex: 1 1 auto;
+	min-width: 0;
+	height: auto;
+	padding: 7px 9px;
+	text-align: left;
+	white-space: normal;
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-left: 3px solid var(--text-error);
+	border-radius: var(--radius-s);
+	cursor: pointer;
+	box-shadow: none;
+	transition: border-color 0.12s ease, background-color 0.12s ease;
+}
+
+.lh-mock-exam-weak-open-btn:hover:not(:disabled) {
+	background-color: var(--background-modifier-hover);
+	border-color: var(--interactive-accent);
+	border-left-color: var(--text-error);
+}
+
+.lh-mock-exam-weak-top {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.lh-mock-exam-weak-title {
+	font-size: var(--font-ui-small);
+	font-weight: 600;
+	color: var(--text-normal);
+	word-break: break-word;
+}
+
+.lh-mock-exam-weak-reason {
+	font-size: 11px;
+	color: var(--text-muted);
+	line-height: 1.35;
+	word-break: break-word;
+}
+
+.lh-mock-exam-weak-practice-btn {
+	flex-shrink: 0;
+	align-self: center;
+}
+
+.lh-mock-exam-bottom-actions {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.lh-mock-exam-sub-actions-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+	gap: 6px;
+}
+
